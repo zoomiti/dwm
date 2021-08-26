@@ -70,6 +70,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *audiocmd[] = { "st", "-e", "pulsemixer", NULL };
 static const char *browsercmd[] = { "microsoft-edge-dev", NULL };
 static const char *discordcmd[] = { "discord", NULL };
+static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
 
 //volume controls
 static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
@@ -78,6 +79,7 @@ static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
+	{ MODKEY|ShiftMask,             XK_l,                    spawn,          {.v = sleepcmd } },
 	{ MODKEY,                       XK_p,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,                    spawn,          {.v = browsercmd } },
