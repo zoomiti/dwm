@@ -74,11 +74,6 @@ static const char *browsercmd[] = { "microsoft-edge-dev", NULL };
 static const char *discordcmd[] = { "discord", NULL };
 static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
 
-//volume controls
-static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
-static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
-
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
 	{ MODKEY|ShiftMask,             XK_l,                    spawn,          {.v = sleepcmd } },
@@ -112,9 +107,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,                setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,                setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,                setgaps,        {.i = GAP_TOGGLE} },
-	{ 0,                           	XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
-	{ 0,                           	XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
-	{ 0,                           	XF86XK_AudioMute,        spawn,          {.v = mutevol } },
+	{ 0,                           	XF86XK_AudioRaiseVolume, spawn,          SHCMD("amixer -q set Master 1%+ unmute && kill -36 $(pidof dwmblocks)") },
+	{ 0,                           	XF86XK_AudioLowerVolume, spawn,          SHCMD("amixer -q set Master 1%- unmute && kill -36 $(pidof dwmblocks)") },
+	{ 0,                           	XF86XK_AudioMute,        spawn,          SHCMD("amixer -q set Master toggle && kill -36 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
