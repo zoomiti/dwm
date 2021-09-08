@@ -13,13 +13,13 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12", "fontawesome:size=12" };
+static const char *fonts[]          = { "monospace:size=12", "fontawesome:size=12" , "fontawesomebrands:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_orange[]        = "#cc7700";
+static const char col_orange[]      = "#cc7700";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -27,21 +27,23 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
-	{ "Steam",    NULL,       "Steam",    0,            0,           -1 },
-	{ "Steam",    NULL,       "News",     0,            1,           -1 },
-	{ "Origin",   NULL,       NULL,       0,            1,           -1 },
-	{ NULL,       NULL,       "Origin",   0,            1,           -1 },
+	/* class       instance                    title       tags mask     isfloating   monitor */
+	{ "Gimp",      NULL,                       NULL,       0,            1,           -1 },
+	{ "firefox",   NULL,                       NULL,       1 << 3,       0,           -1 },
+	{ "Roll20",    NULL,                       NULL,       1 << 1,       0,           -1 },
+	{ NULL,        "microsoft-edge-dev",       NULL,       1 << 3,       0,           -1 },
+	{ "Steam",     NULL,                       NULL,       1 << 4,       1,           -1 },
+	{ "Steam",     NULL,                       "Steam",    1 << 4,       0,           -1 },
+	{ "Steam",     NULL,                       "News",     1 << 4,       1,           -1 },
+	{ "Origin",    NULL,                       NULL,       1 << 4,       1,           -1 },
+	{ NULL,        NULL,                       "Origin",   1 << 4,       1,           -1 },
 };
 
 /* layout(s) */
@@ -116,6 +118,7 @@ static Key keys[] = {
 	{ 0,                           	XF86XK_AudioLowerVolume, spawn,          SHCMD("amixer -q set Master 1%- unmute && kill -36 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioMute,        spawn,          SHCMD("amixer -q set Master toggle && kill -36 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
+	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20 &") },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
 	TAGKEYS(                        XK_3,                                     2)
