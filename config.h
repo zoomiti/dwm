@@ -77,7 +77,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *audiocmd[] = { "st", "-e", "pulsemixer", NULL };
-static const char *browsercmd[] = { "microsoft-edge-dev", NULL };
+static const char *browsercmd[] = { "firefox", NULL };
 static const char *discordcmd[] = { "discord", NULL };
 static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
 
