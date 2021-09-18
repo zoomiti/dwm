@@ -119,7 +119,7 @@ static Key keys[] = {
 	{ 0,                           	XF86XK_AudioLowerVolume, spawn,          SHCMD("amixer -q set Master 1%- unmute && kill -36 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioMute,        spawn,          SHCMD("amixer -q set Master toggle && kill -36 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
-	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20 &") },
+	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20") },
 	{ MODKEY,                       XK_e,                    spawn,          {.v = entertainmentcmd } },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
