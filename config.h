@@ -34,16 +34,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance                    title       tags mask     isfloating   monitor */
-	{ "Gimp",      NULL,                       NULL,       0,            1,           -1 },
-	{ "firefox",   NULL,                       NULL,       1 << 3,       0,           -1 },
-	{ "Roll20",    NULL,                       NULL,       1 << 1,       0,           -1 },
-	{ NULL,        "microsoft-edge-dev",       NULL,       1 << 3,       0,           -1 },
-	{ "Steam",     NULL,                       NULL,       1 << 4,       1,           -1 },
-	{ "Steam",     NULL,                       "Steam",    1 << 4,       0,           -1 },
-	{ "Steam",     NULL,                       "News",     1 << 4,       1,           -1 },
-	{ "Origin",    NULL,                       NULL,       1 << 4,       1,           -1 },
-	{ NULL,        NULL,                       "Origin",   1 << 4,       1,           -1 },
+	/* class           instance   title       tags mask     isfloating   monitor */
+	{ "Gimp",          NULL,      NULL,       0,            1,           -1 },
+	{ "firefox",       NULL,      NULL,       1 << 3,       0,           -1 },
+	{ "Roll20",        NULL,      NULL,       1 << 1,       0,           -1 },
+	{ "Entertainment", NULL,      NULL,       1 << 2,       0,           -1 },
+	{ "Steam",         NULL,      NULL,       1 << 4,       1,           -1 },
+	{ "Steam",         NULL,      "Steam",    1 << 4,       0,           -1 },
+	{ "Steam",         NULL,      "News",     1 << 4,       1,           -1 },
+	{ "Origin",        NULL,      NULL,       1 << 4,       1,           -1 },
+	{ NULL,            NULL,      "Origin",   1 << 4,       1,           -1 },
 };
 
 /* layout(s) */
@@ -80,6 +80,7 @@ static const char *audiocmd[] = { "st", "-e", "pulsemixer", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *discordcmd[] = { "discord", NULL };
 static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
+static const char *entertainmentcmd[] = { "entertainment.sh", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -119,6 +120,7 @@ static Key keys[] = {
 	{ 0,                           	XF86XK_AudioMute,        spawn,          SHCMD("amixer -q set Master toggle && kill -36 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
 	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20 &") },
+	{ MODKEY,                       XK_e,                    spawn,          {.v = entertainmentcmd } },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
 	TAGKEYS(                        XK_3,                                     2)
