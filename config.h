@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "Steam",         NULL,      "News",                1 << 4,       1,           -1 },
 	{ "Origin",        NULL,      NULL,                  1 << 4,       1,           -1 },
 	{ NULL,            NULL,      "Origin",              1 << 4,       1,           -1 },
+	{ "spt",           NULL,      NULL,                  1 << 7,       0,           -1 },
 };
 
 /* layout(s) */
@@ -122,6 +123,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
 	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20") },
 	{ MODKEY,                       XK_e,                    spawn,          {.v = entertainmentcmd } },
+	{ MODKEY|ShiftMask,             XK_s,                    spawn,          SHCMD("st -c spt -e spt") },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
 	TAGKEYS(                        XK_3,                                     2)
