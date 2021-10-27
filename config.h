@@ -119,13 +119,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,                setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,                setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,                setgaps,        {.i = GAP_TOGGLE} },
+	{ 0,                           	XF86XK_AudioStop,        spawn,          SHCMD("playerctl pause") },
+	{ 0,                           	XF86XK_AudioPlay,        spawn,          SHCMD("playerctl play") },
+	{ 0,                           	XF86XK_AudioNext,        spawn,          SHCMD("playerctl next") },
+	{ 0,                           	XF86XK_AudioPrev,        spawn,          SHCMD("playerctl previous") },
 	{ 0,                           	XF86XK_AudioRaiseVolume, spawn,          SHCMD("amixer -q set Master 1%+ unmute && kill -36 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioLowerVolume, spawn,          SHCMD("amixer -q set Master 1%- unmute && kill -36 $(pidof dwmblocks)") },
 	{ 0,                           	XF86XK_AudioMute,        spawn,          SHCMD("amixer -q set Master toggle && kill -36 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
 	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20") },
 	{ MODKEY,                       XK_e,                    spawn,          {.v = entertainmentcmd } },
-	{ MODKEY|ShiftMask,             XK_s,                    spawn,          SHCMD("st -c spt -e spt") },
+	{ MODKEY|ShiftMask,             XK_m,                    spawn,          SHCMD("st -c spt -e spt") },
+	{ MODKEY|ShiftMask,             XK_s,                    spawn,          SHCMD("flameshot gui") },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
 	TAGKEYS(                        XK_3,                                     2)
