@@ -34,18 +34,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance   title                  tags mask     isfloating   monitor */
-	{ "Gimp",          NULL,      NULL,                  0,            1,           -1 },
-	{ "firefox",       NULL,      NULL,                  1 << 3,       0,           -1 },
-	{ "Roll20",        NULL,      NULL,                  1 << 1,       0,           -1 },
-	{ "Entertainment", NULL,      NULL,                  1 << 2,       0,           -1 },
-	{ NULL,            NULL,      "Picture-in-Picture",  0,            1,           -1 },
-	{ "Steam",         NULL,      NULL,                  1 << 4,       1,           -1 },
-	{ "Steam",         NULL,      "Steam",               1 << 4,       0,           -1 },
-	{ "Steam",         NULL,      "News",                1 << 4,       1,           -1 },
-	{ "Origin",        NULL,      NULL,                  1 << 4,       1,           -1 },
-	{ NULL,            NULL,      "Origin",              1 << 4,       1,           -1 },
-	{ "spt",           NULL,      NULL,                  1 << 7,       0,           -1 },
+	/* class			instance	title					tagmask		isfloating	monitor */
+	{ "Gimp",			NULL,		NULL,					0,			1,			-1 },
+//	{ "firefox",		NULL,		NULL,					1 << 3,		0,			-1 },
+	{ "Roll20",			NULL,		NULL,					1 << 1,		0,			-1 },
+	{ "Entertainment",	NULL,		NULL,					1 << 2,		0,			-1 },
+	{ NULL,				NULL,		"Picture-in-Picture",	~0,			1,			-1 },
+	{ "Steam",			NULL,		NULL,					1 << 4,		1,			-1 },
+	{ "Steam",			NULL,		"Steam",				1 << 4,		0,			-1 },
+	{ "Steam",			NULL,		"News",					1 << 4,		1,			-1 },
+	{ "Origin",			NULL,		NULL,					1 << 4,		1,			-1 },
+	{ NULL,				NULL,		"Origin",				1 << 4,		1,			-1 },
+	{ "spt",			NULL,		NULL,					1 << 7,		0,			-1 },
+	{ NULL,				NULL,		"Zoom Meeting",			1 << 6,		0,			-1 },
+	{ "zoom",			NULL,		NULL,					1 << 6,		1,			-1 },
 };
 
 /* layout(s) */
