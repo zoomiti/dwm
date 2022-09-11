@@ -78,8 +78,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *audiocmd[] = { "st", "-e", "pulsemixer", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *audiocmd[] = { "alacritty", "-e", "pulsemixer", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *discordcmd[] = { "discord", NULL };
 static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
@@ -128,8 +128,8 @@ static Key keys[] = {
 	{ 0,                           	XF86XK_AudioMute,        spawn,          SHCMD("amixer -q set Master toggle && kill -36 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,             XF86XK_AudioMute,        spawn,          {.v = audiocmd } },
 	{ MODKEY|ShiftMask,             XK_r,                    spawn,          SHCMD("firefox --class=Roll20 --new-instance https://roll20.net --new-window https://dndbeyond.com -P Roll20") },
-	{ MODKEY,                       XK_e,                    spawn,          {.v = entertainmentcmd } },
-	{ MODKEY|ShiftMask,             XK_m,                    spawn,          SHCMD("st -c spt -e spt") },
+	{ MODKEY|ShiftMask,             XK_e,                    spawn,          {.v = entertainmentcmd } },
+	{ MODKEY|ShiftMask,             XK_m,                    spawn,          SHCMD("alacritty --class spt --title Spotify -e spt") },
 	{ MODKEY|ShiftMask,             XK_s,                    spawn,          SHCMD("flameshot gui") },
 	TAGKEYS(                        XK_1,                                     0)
 	TAGKEYS(                        XK_2,                                     1)
